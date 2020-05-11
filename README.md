@@ -1,59 +1,8 @@
 A MATLAB app which can compress an JPEG with Discrete Cosine Transform Matrix of Image.
-The Discrete Cosine Transform (DCT)
-  The discrete cosine transform (DCT) helps separate the image into parts (or spectral sub-bands) of differing importance (with respect to the image's visual quality). The DCT is similar to the discrete Fourier transform: it transforms a signal or image from the spatial domain to the frequency domain (Fig 7.8).
+A discrete cosine transform (DCT) expresses a finite sequence of data points in terms of a sum of cosine functions oscillating at different frequencies. The DCT, first proposed by Nasir Ahmed in 1972, is a widely used transformation technique in signal processing and data compression. It is used in most digital media, including digital images (such as JPEG and HEIF, where small high-frequency components can be discarded), digital video (such as MPEG and H.26x), digital audio (such as Dolby Digital, MP3 and AAC), digital television (such as SDTV, HDTV and VOD), digital radio (such as AAC+ and DAB+), and speech coding (such as AAC-LD, Siren and Opus). DCTs are also important to numerous other applications in science and engineering, such as digital signal processing, communications devices, reducing network bandwidth usage, and spectral methods for the numerical solution of partial differential equations.
 
+The use of cosine rather than sine functions is critical for compression, since it turns out (as described below) that fewer cosine functions are needed to approximate a typical signal, whereas for differential equations the cosines express a particular choice of boundary conditions. In particular, a DCT is a Fourier-related transform similar to the discrete Fourier transform (DFT), but using only real numbers. The DCTs are generally related to Fourier Series coefficients of a periodically and symmetrically extended sequence whereas DFTs are related to Fourier Series coefficients of a periodically extended sequence. DCTs are equivalent to DFTs of roughly twice the length, operating on real data with even symmetry (since the Fourier transform of a real and even function is real and even), whereas in some variants the input and/or output data are shifted by half a sample. There are eight standard DCT variants, of which four are common.
 
-DCT Encoding
+The most common variant of discrete cosine transform is the type-II DCT, which is often called simply "the DCT". This was the original DCT as first proposed by Ahmed. Its inverse, the type-III DCT, is correspondingly often called simply "the inverse DCT" or "the IDCT". Two related transforms are the discrete sine transform (DST), which is equivalent to a DFT of real and odd functions, and the modified discrete cosine transform (MDCT), which is based on a DCT of overlapping data. Multidimensional DCTs (MD DCTs) are developed to extend the concept of DCT on MD signals. There are several algorithms to compute MD DCT. A variety of fast algorithms have been developed to reduce the computational complexity of implementing DCT. One of these is the integer DCT[1] (IntDCT), an integer approximation of the standard DCT,[2] used in several ISO/IEC and ITU-T international standards.[2][1]
 
-The general equation for a 1D (N data items) DCT is defined by the following equation:
-\begin{displaymath}
-F(u) = \left(\frac{2}{N}\right)^{\frac{1}{2}} \sum_{i=0}^{N-1}
-\Lambda(i).cos\left[
-\frac{\pi.u}{2.N}(2i+1)
-\right]f(i)\end{displaymath}
-
-and the corresponding inverse 1D DCT transform is simple F-1(u), i.e.:
-
-where
-
-\begin{displaymath}
-\Lambda(i) = \left\{ \begin{array}
-{ll} \frac{1}{\sqrt{2}} & {\rm
-for}
-\xi = 0\ 1 & {\rm otherwise}\end{array} \right.\end{displaymath}
-
-The general equation for a 2D (N by M image) DCT is defined by the following equation:
-
-\begin{displaymath}
-F(u,v) = \left(\frac{2}{N}\right)^{\frac{1}{2}}
-\left(\frac{...
- ...}(2i+1)
-\right]cos\left[ \frac{\pi.v}{2.M}(2j+1) \right].f(i,j)\end{displaymath}
-
-and the corresponding inverse 2D DCT transform is simple F-1(u,v), i.e.:
-
-where
-
-\begin{displaymath}
-\Lambda(\xi) = \left\{ \begin{array}
-{ll} \frac{1}{\sqrt{2}} & {\rm
-for}
-\xi = 0 \ 1 & {\rm otherwise}\end{array} \right.\end{displaymath}
-
-The basic operation of the DCT is as follows:
-
-The input image is N by M;
-f(i,j) is the intensity of the pixel in row i and column j;
-F(u,v) is the DCT coefficient in row k1 and column k2 of the DCT matrix.
-For most images, much of the signal energy lies at low frequencies; these appear in the upper left corner of the DCT.
-Compression is achieved since the lower right values represent higher frequencies, and are often small - small enough to be neglected with little visible distortion.
-The DCT input is an 8 by 8 array of integers. This array contains each pixel's gray scale level;
-8 bit pixels have levels from 0 to 255.
-Therefore an 8 point DCT would be:
-where
-
-\begin{displaymath}
-\Lambda(\xi) = \left\{ \begin{array}
-{ll} \frac{1}{\sqrt{2}} & {\rm
-for}
-\xi = 0 \ 1 & {\rm otherwise}\end{array} \right.\end{displaymath}
+DCT compression, also known as block compression, compresses data in sets of discrete DCT blocks.[3] DCT blocks can have a number of sizes, including 8x8 pixels for the standard DCT, and varied integer DCT sizes between 4x4 and 32x32 pixels.[1][4] The DCT has a strong "energy compaction" property,[5][6] capable of achieving high quality at high data compression ratios.[7][8] However, blocky compression artifacts can appear when heavy DCT compression is applied.
