@@ -11,9 +11,21 @@ DCT compression, also known as block compression, compresses data in sets of dis
 # Steps
 1. [Installation](https://in.mathworks.com/help/install/install-products.html)
 2. [Install tollbox](https://in.mathworks.com/products/image.html)
-3. [Store the test image in working directory]()
+3. [Store the test image in working directory](#store-the-test-image-in-working-directory)
 4. [Write the DCT code](https://github.com/Ajeet-kumar1/JPEG-Compressor-MATLAB-App/blob/master/Main_Code.m)
 
 If you need GUI then write code for GUI also.
 
-5. [Demonstration]()
+5. [UI description](#ui-description)
+6. [Demonstration](#demonstration)
+
+
+## Store the test image in working directory
+![image](https://github.com/Ajeet-kumar1/JPEG-Compressor-MATLAB-App/blob/master/Images/Screenshot%20(47).png)
+
+## UI description
+
+![image](https://github.com/Ajeet-kumar1/JPEG-Compressor-MATLAB-App/blob/master/Output%20Interface.jpeg)
+
+## Demonstration
+[Click here](https://youtu.be/6zr2Pl2icmY?t=505)
